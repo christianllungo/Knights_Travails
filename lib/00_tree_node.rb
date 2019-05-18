@@ -26,8 +26,13 @@ class PolyTreeNode
         @value
     end
 
+    # sets parent node unless it's the root node
+    # removes node from old parents array of children
     def parent=(parent)
+        @parent.children.delete(self) if @parent != nil
         @parent = parent
         parent.children << self unless parent == nil
     end
+
+    
 end
